@@ -3,7 +3,7 @@ import glob
 import random
 
 
-class wordle:
+class pyrdle:
 
     wordlist_all = []
     wordlist_hidden = []
@@ -42,19 +42,3 @@ class wordle:
 
 
 
-
-        
-
-a = "aaaaa"
-correctAnswer = "happy"
-
-a_list = np.array(list(a))
-correctAnswer_list = np.array(list(correctAnswer))
-
-for i in correctAnswer_list:
-    print( a_list == i )
-print(a_list)
-print(correctAnswer_list)
-
-aaa =  correctAnswer_list == "h"
-print(aaa)
