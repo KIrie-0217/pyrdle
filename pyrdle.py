@@ -1,6 +1,6 @@
 import numpy as np
 import fabric
-import glob 
+import glob
 import random
 
 
@@ -80,7 +80,6 @@ class pyrdle:
                     if flag == 0 and ans_list[j] == self.correctAnswer_list[i]:
                         bit[j] = True
             return hit,bit
-
 
 
 def main():
