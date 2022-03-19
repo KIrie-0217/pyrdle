@@ -51,7 +51,7 @@ class pyrdle:
     def answer(self,ans:str):
         ans = ans.upper()
 
-        if self.numOfAns == 6 or self.clearFlag == True :
+        if self.numOfAns == 6 or self.clearFlag  :
             print("this game is already end")
             return self.preHit[5],self.preBit[5],self.numOfAns,self.preDisplay
 
@@ -59,7 +59,7 @@ class pyrdle:
             print("input should be " + str(self.correctAnswer_list.size) +" characters")
             return np.array([False,False,False,False,False]),np.array([False,False,False,False,False]),self.numOfAns,self.preDisplay
 
-        elif self.isAnswerExists(ans) != True:
+        elif not self.isAnswerExists(ans) :
             print("Not in word list")
             return np.array([False,False,False,False,False]),np.array([False,False,False,False,False]),self.numOfAns,self.preDisplay
 
@@ -73,7 +73,7 @@ class pyrdle:
             self.preDisplay = np.append(self.preDisplay,np.array(display))
 
 
-            if np.all(hit) == True:
+            if np.all(hit) :
                 print("congratulate!")
                 print("the correct answer is" + self.correctAnswer)
                 self.clearFlag == True
@@ -91,12 +91,12 @@ class pyrdle:
             hitCheckFlag = np.zeros(ans_list.size)
 
             for i in range(ans_list.size):
-                if hit[i] == True:
+                if hit[i] :
                             bit[i] = True
                             hitCheckFlag[i] = 1
 
             for i in range(ans_list.size):
-                if hit[i] == False:
+                if hit[i] :
                     for j in range(ans_list.size):
                         if ans_list[j] == self.correctAnswer_list[i] and hitCheckFlag[j] != 1:
                             bit[j] = True
@@ -111,9 +111,9 @@ class pyrdle:
         listAns = list(ans)
 
         for i in range(len(ans)):
-            if hit[i] == True :
+            if hit[i]  :
                 displayStr += self.wordColor.green(listAns[i]) + " "
-            elif bit[i] == True:
+            elif bit[i] :
                 displayStr += self.wordColor.yellow(listAns[i]) + " "
             else:
                 displayStr += self.wordColor.black(listAns[i]) + " "
@@ -240,7 +240,7 @@ def  pyrdlePlay():
             print(i)
         print(count)
 
-        if count == 6 or np.all(hit) == True :
+        if count == 6 or np.all(hit) :
             if gameEnd():
                 continue
             else:
